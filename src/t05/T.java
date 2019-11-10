@@ -1,7 +1,5 @@
 package t05;
 
-import java.util.concurrent.TimeUnit;
-
 public class T implements Runnable {
 
     private int count = 10;
@@ -10,13 +8,13 @@ public class T implements Runnable {
      * synchronized 代码块是原子操作
      */
     @Override
-    public synchronized void run() {
+    public /*synchronized*/ void run() {
         count--;
-        try {
-            TimeUnit.SECONDS.sleep(1);
+/*        try {
+            TimeUnit.MILLISECONDS.sleep(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
         System.out.println(Thread.currentThread().getName() + " count = " + count);
     }
 
